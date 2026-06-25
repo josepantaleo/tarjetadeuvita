@@ -1,0 +1,191 @@
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* Fondo con colores de FC Barcelona (blaugrana: azul oscuro, granate, amarillo) */
+        background: linear-gradient(135deg, #069acb, #0b2b5a 40%, #0193b0 70%);
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        padding: 20px;
+        box-sizing: border-box;
+        overflow-x: hidden;
+      }
+
+      /* Elemento decorativo de fondo para notar el desenfoque del vidrio */
+      .decoracion-fondo {
+        position: absolute;
+        width: 380px;
+        height: 380px;
+        background: radial-gradient(circle, rgba(252,209,22,0.25) 0%, transparent 65%);
+        top: 18%;
+        left: 14%;
+        z-index: 1;
+        opacity: 0.75;
+        animation: flotar 6s ease-in-out infinite alternate;
+      }
+
+      @keyframes flotar {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(30px); }
+      }
+
+      /* ==========================================================================
+         2. CONTENEDOR 3D Y TARJETA (GLASSMORPHISM)
+         ========================================================================== */
+      .contenedor-3d {
+        perspective: 1200px;
+        z-index: 1;
+      }
+
+      .tarjeta {
+        width: 100%;
+        max-width: 380px;
+        background: rgba(255, 255, 255, 0.07); /* Cristal traslúcido */
+        border: 1px solid rgba(255, 255, 255, 0.25); /* Borde brillante */
+        border-radius: 24px;
+        padding: 30px;
+        box-sizing: border-box;
+        color: #ffffff;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        
+        /* Efecto de desenfoque de vidrio */
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+
+        /* Preparación para físicas 3D */
+        transform-style: preserve-3d;
+        transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Efecto de destello/brillo que sigue al mouse */
+      .tarjeta-glare {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 20% 10%, rgba(252,209,22,0.18) 0%, transparent 55%);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        z-index: 3;
+      }
+
+      /* ==========================================================================
+         3. CONTENIDO CON EFECTO POP-OUT (PROFUNDIDAD Z)
+         ========================================================================== */
+      .tarjeta-header, .descripcion, .info-section, .boton {
+        /* Empuja los elementos hacia adelante creando capas de profundidad */
+        transform: translateZ(50px); 
+      }
+
+      /* Encabezado */
+      .tarjeta-header {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 25px;
+        transform: translateZ(65px); /* Un poco más adelante */
+      }
+
+      .imagen {
+        width: 85px;
+        height: 85px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #8b1333; /* borde granate */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .tarjeta-header h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+
+      .rol {
+        margin: 4px 0 0 0;
+        font-size: 0.9rem;
+        opacity: 0.85;
+      }
+
+      /* Sección Descripción y Video */
+      .descripcion {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        opacity: 0.9;
+        margin-bottom: 25px;
+      }
+
+      .descripcion p {
+        margin: 0 0 15px 0;
+      }
+
+      .video {
+        width: 100%;
+        height: auto;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        transform: translateZ(40px); /* El video se queda un poco más atrás */
+      }
+
+      /* Sección Información */
+      .info-section {
+        margin-bottom: 30px;
+      }
+
+      .info-section h2 {
+        font-size: 1.1rem;
+        margin: 0 0 12px 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #8b1333; /* granate */
+      }
+
+      .info {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .info li {
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 4px;
+      }
+
+      .info li strong {
+        opacity: 0.7;
+        font-weight: 500;
+      }
+
+      /* Botón de Contacto */
+      .boton {
+        display: block;
+        text-align: center;
+        background: #fcd116; /* amarillo Barça */
+        color: #07173a; /* azul oscuro */
+        padding: 14px;
+        border-radius: 14px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        transition: background 0.2s, transform 0.2s, color 0.2s;
+        transform: translateZ(75px); /* El botón es lo que más sobresale */
+      }
+
+      .boton:hover {
+        background: #8b1333; /* granate */
+        color: #ffffff;
+        transform: translateZ(85px) scale(1.03);
+      }
