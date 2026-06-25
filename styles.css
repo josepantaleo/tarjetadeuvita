@@ -1,0 +1,129 @@
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: #87CEEB;
+  background: linear-gradient(to right, #08d5ec 0%, #ffffff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.tarjeta {
+  background: rgba(255, 255, 255, 0.82);
+  width: min(360px, 90vw);
+  padding: 30px;
+  border-radius: 28px;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(56, 33, 33, 0.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+.tarjeta-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.imagen {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid rgba(217, 127, 127, 0.35);
+  box-shadow: 0 18px 35px rgba(181, 122, 122, 0.18);
+}
+
+h1 {
+  font-size: 26px;
+  margin: 0;
+  color: #3d5f7f;
+  letter-spacing: 0.02em;
+}
+
+.rol {
+  color: #4cb808;
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.descripcion {
+  font-size: 0.98rem;
+  color: #6d4f4f;
+  line-height: 1.7;
+  margin: 0 0 24px;
+  padding: 0 8px;
+}
+
+.info-section {
+  text-align: left;
+}
+
+.info-section h2 {
+  font-size: 0.95rem;
+  margin: 0 0 12px;
+  color: #7e4e4e;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.info li {
+  background: #f0f8fc;
+  padding: 12px 14px;
+  border-radius: 16px;
+  font-size: 0.97rem;
+  color: #3d5f7f;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.info li strong {
+  color: #5f8fb3;
+}
+
+.boton {
+  display: inline-block;
+  padding: 12px 20px;
+  background: skyblue;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: 0.3s;
+  animation: aparecer 1s ease;
+}
+.boton:hover {
+  background: lightseagreen;
+  transform: scale(1.05);
+}
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.video {
+  border-radius: 16px;
+  box-shadow: 12px 12px 28px rgba(246, 3, 3, 0.1);
+}
+.video:hover {
+  box-shadow: 12px 12px 8px rgba(4, 162, 162, 0.25);
+}
